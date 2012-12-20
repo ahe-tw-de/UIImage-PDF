@@ -175,7 +175,7 @@
         }
     }
     
-    [ pdfView release ];
+    //[ pdfView release ]; //changed by tw/ahe
     
 	return pdfImage;
 }

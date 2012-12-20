@@ -62,7 +62,7 @@
     
     if( resourceURL )
 	{
-		CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (CFURLRef) resourceURL );
+		CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (__bridge CFURLRef) resourceURL ); //changed by tw/ahe
 		CGPDFPageRef page1 = CGPDFDocumentGetPage( pdf, page );
 		
 		rect = CGPDFPageGetBoxRect( page1, kCGPDFCropBox );
@@ -80,7 +80,7 @@
     
     if( resourceURL )
 	{
-		CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (CFURLRef) resourceURL );
+		CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (__bridge CFURLRef) resourceURL ); //changed by tw/ahe
 		
 		pageCount = CGPDFDocumentGetNumberOfPages( pdf );
 		
@@ -126,7 +126,7 @@
 		CGContextScaleCTM( ctx, 1, -1 );
 		CGContextTranslateCTM( ctx, 0, -self.bounds.size.height );
 		
-        CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (CFURLRef) self.resourceURL );
+        CGPDFDocumentRef pdf = CGPDFDocumentCreateWithURL( (__bridge CFURLRef) self.resourceURL ); //changed by tw/ahe
 		CGPDFPageRef page1 = CGPDFDocumentGetPage( pdf, self.page );
 		
 		CGRect mediaRect = CGPDFPageGetBoxRect( page1, kCGPDFCropBox );
@@ -141,7 +141,7 @@
 
 - (void)dealloc 
 {
-    [super dealloc];
+    //[super dealloc]; //changed by tw/ahe
 }
 
 
